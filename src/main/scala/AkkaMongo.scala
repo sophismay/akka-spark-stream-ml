@@ -4,20 +4,15 @@ import org.apache.spark.streaming.StreamingContext._
 import org.apache.spark.streaming.dstream._
 import org.apache.spark.streaming.receiver.ActorHelper
 import org.apache.spark.util.AkkaUtils
-import akka.actor.{ActorSystem, Props}
+import akka.actor.{ ActorRef, ActorSystem, Props, Actor, ActorLogging }
 import com.typesafe.config.ConfigFactory
 
-
-import akka.actor.{ ActorRef, ActorSystem, Props, Actor, ActorLogging }
 import java.io.File
 import scala.concurrent.duration._
 import connection.MongoConnection
 import org.mongodb.scala.Document
 import org.apache.spark.rdd.RDD
 import org.mongodb.scala.bson.BsonArray
-import scala.Option
-import scala.Some
-import scala._
 
 
 case class Save(name: String)

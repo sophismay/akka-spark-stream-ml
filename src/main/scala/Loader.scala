@@ -1,5 +1,7 @@
 package loader
 
+import scala.io.Source
+
 trait Loader {
   type F
   type U

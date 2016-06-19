@@ -20,9 +20,9 @@ class MongoConnection(private val host: String, private val port: Int = 27017) e
   //type C = MongoClient
   require(host != null, "hostname must be specified")
   //val underlying: MongoClient = MongoClient("mongodb://" + host + ":" + port.toString)
-  val underlying: MongoClient = MongoClient("mongodb://localhost:27017")
-  val database: MongoDatabase = underlying.getDatabase("akka-mongo")
-  val collection: MongoCollection[Document] = database.getCollection("streamdata")
+  lazy val underlying: MongoClient = MongoClient("mongodb://localhost:27017")
+  lazy val database: MongoDatabase = underlying.getDatabase("akka-mongo")
+  lazy val collection: MongoCollection[Document] = database.getCollection("streamdata")
   println("CONSTRUCTOR")
 
   def +=(doc: Document) = {
